@@ -38,6 +38,12 @@ foreach ($dataArr as $key => $value) {
     $errArr[$key] = '';
 }
 
+// list：右辺の配列の要素を、左辺の変数に代入
+// 年月日、性別、交通手段をそれぞれ取得
+list($yearArr, $monthArr, $dayArr) = initMaster::getDate();
+$sexArr = initMaster::getSex();
+$trafficArr = initMaster::getTrafficWay();
+
 $context['yearArr'] = $yearArr;
 $context['monthArr'] = $monthArr;
 $context['dayArr'] = $dayArr;
