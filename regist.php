@@ -1,10 +1,12 @@
 <?php
 namespace myapp;
 
+use myapp\lib\initMaster;
+
 require_once __DIR__ . '/Bootstrap.class.php';
 
-$loader = new \Twig_Loader_Filesystem(Bootstrap::VIEW_DIR);
-$twig = new \Twig_Environment($loader, [
+$loader = new \Twig\Loader\FilesystemLoader(Bootstrap::VIEW_DIR);
+$twig = new \Twig\Environment($loader, [
     'cache' => Bootstrap::CACHE_DIR
 ]);
 
@@ -53,5 +55,5 @@ $context['trafficArr'] = $trafficArr;
 $context['dataArr'] = $dataArr;
 $context['errArr']= $errArr;
 
-$template = $twig->loadTemplate('regist.html.twig');
-$template->display($context);
+$template = $twig->load('regist.html.twig');
+echo $template->render($context);
